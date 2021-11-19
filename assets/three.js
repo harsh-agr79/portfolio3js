@@ -1,3 +1,7 @@
+$(document).ready(function(){
+  $('.sidenav').sidenav();
+});
+
 window.onload = init;
 var b = 0xffffff
 var a = 0x000000

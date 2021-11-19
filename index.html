@@ -7,17 +7,22 @@
     <link rel="stylesheet" href="./assets/style.css">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Compiled and minified JavaScript -->
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.0.3/chroma.min.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/bas.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/TextGeometry.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/FontUtils.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/pnltri.min.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/droid_sans_bold.typeface.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
 
 
     <script>
@@ -27,34 +32,96 @@
       <nav class="black z-depth-0" style="position: fixed;">
         <div class="nav-wrapper">
           <!-- <a href="#!" class="brand-logo"></a> -->
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
+          <!-- <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
+          <ul class="">
             <li><a href="sass.html">Sass</a></li>
             <li><a href="badges.html">Components</a></li>
             <li><a href="collapsible.html">Javascript</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
           </ul>
         </div>
       </nav>
     </div>
   
 
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
+  <!-- <ul class="sidenav" style="background: black; color: white;" id="mobile-demo">
+    <li><a class="white-text" href="sass.html">Sass</a></li>
+    <li><a class="white-text" href="badges.html">Components</a></li>
+    <li><a class="white-text" href="collapsible.html">Javascript</a></li>
+    <li><a class="white-text" href="mobile.html">Mobile</a></li> -->
   </ul>
     <div id="three-container"></div>
-    
+    <div class="red" style="height: 100vh;"></div>
+    <div class="flex">
+      <div class="">
+        
+        <div>
+            <div class="" style="position: absolute; margin-top:200px; width: 100vw;">
+              <h2 class="white-text" style="text-align: center;">Find me on</h2>
+              <div class="row" style="margin-right:10vw; margin-left:10vw; margin-top:5vh;">
+                <div class="col s12 m4"></div>
+                <div class="row col s12 m4">
+                  <div class="col s4 center white-text" style="font-size: 4rem"><i class="fab fa-facebook"></i>
+                  </div>
+                  <div class="col s4 center white-text" style="font-size: 4rem"><i class="fab fa-linkedin"></i></div>
+                  <div class="col s4 center white-text" style="font-size: 4rem"><i class="fab fa-instagram-square"></i></div>
+                </div>
+                <div class="col s12 m4"></div>
+                
+              </div>
+            </div>
+        </div>
+        <form style="display: none; width: 80%; margin: 0 auto;">
+          <div class="form-row">
+            <div class="form-group col-sm-6">
+              <label for="noiseInput" class="form-label">Noise Coef</label>
+              <input type="range" min="1" max="100" class="custom-range" id="noiseInput">
+            </div>
+            <div class="form-group col-sm-6">
+              <label for="heightInput" class="form-label">Height Coef</label>
+              <input type="range" min="1" max="100" class="custom-range" id="heightInput">
+            </div>
+          </div>
+          <div class="form-group col-md-12">
+            <a href="#" id="trigger" class="btn btn-sm btn-secondary">Random Colors</a>
+          </div>
+        </form>
+        
+      </div>
+      
+      
+    </div>
+    <div class="main">
+      <div class="flex">
+        <!-- <div class="container">
+            <h1>Take The Track
+            </h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, nostrum.</p>
+            <button>Go Biking
+            </button>
+        </div> -->
+        <div>
+          <canvas id="background"></canvas>
+        </div>
+    </div>
+    </div>
+    <style>
+      
+    </style>
     <!-- <div id="instructions">
         click and drag to control the animation
     </div> -->
-        <div style="height: 100vh;">
-
-        </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.2/jquery.min.js" integrity="sha512-eqClqe36bqXg9ABERfLUfLsDuC0J9sgC2ECZmEFsw5snXC7ANYMeOijlBAcRlhctHbvHx9ZERfjBteM6U27qYg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+          <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="./assets/script.js"></script>
         <script src="./assets/three.js"></script>
+    <script src="./assets/plane.js"></script>
+        <script>
+           
+        </script>
 </body>
 </html>
