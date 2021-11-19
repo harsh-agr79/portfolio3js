@@ -16,6 +16,7 @@ body {
 #background {
 	/* position: fixed; */
 	background: black;
+	overflow-x: hidden;
 	z-index: -1;
   }
   .main{
