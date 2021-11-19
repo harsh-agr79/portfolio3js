@@ -17,7 +17,7 @@ body {
 	/* position: fixed; */
 	background: black;
 	overflow-x: hidden;
-	z-index: -1;
+	z-index: -2;
   }
   .main{
 	display: flex;
